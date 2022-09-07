@@ -16,8 +16,26 @@ class MainActivity : AppCompatActivity() {
         dado1=findViewById(R.id.imgDado1)
         dado2=findViewById(R.id.imgDado2)
         //Prueba de cambios
+
+        boton.setOnClickListener {
+            dado1.setImageDrawable(getDrawable(getRandomImage()))
+            dado2.setImageDrawable(getDrawable(getRandomImage()))
+        }
+
     }
-    fun aleatorio(par: Int = 0): Int{
-        return (0..par).random()
+    private fun aleatorio(limiteSup: Int = 0): Int{
+        return (1..limiteSup).random()
+    }
+    private fun getRandomImage() : Int {
+        return when(aleatorio(6)){
+            1 -> R.drawable.dice_1
+            2 -> R.drawable.dice_2
+            3 -> R.drawable.dice_3
+            4 -> R.drawable.dice_4
+            5 -> R.drawable.dice_5
+            6 -> R.drawable.dice_6
+            else
+                -> R.drawable.empty_dice
+        }
     }
 }
