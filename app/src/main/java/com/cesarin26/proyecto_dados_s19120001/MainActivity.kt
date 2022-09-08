@@ -15,13 +15,11 @@ class MainActivity : AppCompatActivity() {
         boton=findViewById(R.id.btnClick)
         dado1=findViewById(R.id.imgDado1)
         dado2=findViewById(R.id.imgDado2)
-        //Prueba de cambios
 
         boton.setOnClickListener {
             dado1.setImageDrawable(getDrawable(getRandomImage()))
             dado2.setImageDrawable(getDrawable(getRandomImage()))
         }
-
     }
     private fun aleatorio(limiteSup: Int = 0): Int{
         return (1..limiteSup).random()
